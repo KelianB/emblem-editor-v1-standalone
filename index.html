@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+		<link rel='stylesheet' type='text/css' href="./style.css">
+
+		<title>Guild Emblem Editor</title>
+
+		<meta name="description"  content="A simple fantasy emblem editor based on Guild Wars 2 assets.">
+
+		<script src="./utils.js"></script>
+		<script src="./gw2.js"></script>
+		<script src="./resources/guildemblems-defs.js"></script>
+		<script src="./resources/guildemblems-colors.js"></script>
+	</head>
+	<body>
+		<div id="emblemBackgrounds" class="panel">
+			<div class="panelTitle">Backgrounds<hr></div>
+			<div id="emblemBackgrounds-images"></div>
+		</div>
+
+		<div id="middle">		
+			<div id="mainPanel" class="panel">
+				<div class="panelTitle">GW2 Emblem Editor<hr></div>
+				<div id="mainPanelContent">
+					<span class="inputLabel">Load In-game Emblem:</span> <input id="guildNameInput" type="text" placeholder="Guild name"> <button id="guildLoad">Load</button><br>
+					<span class="inputLabel">Share Emblem:</span> <input id="shareEmblemOutput" type="text"><br>
+
+					<span class="inputLabel">Preview:</span>
+					<a id="emblem256" target="_blank" href="#">256px</a> <a id="emblem512" target="_blank" href="#">512px</a>
+					<a id="emblem1024" target="_blank" href="#">1024px</a> <a id="emblem2048" target="_blank" href="#">2048px</a>
+
+					<br>
+					<button id="randomEmblemButton" onclick="randomizeEmblem()">Randomize</button>
+					<br>
+
+					<div id="emblemFlags">
+						<table>
+							<tbody>
+								<tr><td></td><td>Flip Vertically</td><td>Flip Horizontally</td><td>Randomize</td></tr>
+								<tr><td>Background</td><td><input id="bgFlipVertical" type="checkbox" data-flag="FlipBackgroundVertical"> </td><td><input id="bgFlipHorizontal" type="checkbox" data-flag="FlipBackgroundHorizontal"></td><td><a class="mysticButton" href="#" onclick="randomizeBg()"></a></button></td></tr>
+								<tr><td>Foreground</td><td><input id="fgFlipVertical" type="checkbox" data-flag="FlipForegroundVertical"></td><td><input id="fgFlipHorizontal" type="checkbox" data-flag="FlipForegroundHorizontal"></td><td><a class="mysticButton" href="#" onclick="randomizeFg()"></a></td></tr>
+							</tbody>
+						</table>
+					</div>
+					<br>
+					<div class="credits">
+						<span>2012 - 2020 ArenaNet, Inc. All rights reserved. NCsoft, the interlocking NC logo, ArenaNet, Arena.net, Guild Wars, Guild Wars Factions, Factions, Guild Wars Nightfall, Nightfall, Guild Wars: Eye of the North, Eye of the North, Guild Wars 2, and all associated logos and designs are trademarks or registered trademarks of NCsoft Corporation. All other trademarks are the property of their respective owners.</span>
+						<br><br>
+						<span>Emblem Editor developed by Kelian B.</span>
+					</div>
+				</div>
+			</div>
+			<div id="emblemDisplay"></div>
+			<div id="colors" class="panel">
+				<div id="colorSlots">
+					<a class="colorSlot" id="colorSlotBg" data-emblemPart="background" data-colorIndex="0" href="#">Background</a>
+					<a class="colorSlot" id="colorSlotFg2" data-emblemPart="foreground" data-colorIndex="1" href="#">1</a>
+					<a class="colorSlot" id="colorSlotFg1" data-emblemPart="foreground" data-colorIndex="0" href="#">2</a>
+				</div>
+				<div id="colorChoices"></div>
+			</div>
+		</div>
+
+
+		<div id="emblemForegrounds" class="panel">
+			<div class="panelTitle">Emblems<hr></div>
+			<div id="emblemForegrounds-images"></div>
+		</div>
+
+		<script src="emblem-editor.js"></script>
+	</body>
+</html>
